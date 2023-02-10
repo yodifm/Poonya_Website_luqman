@@ -1,0 +1,81 @@
+GET http://localhost:5000/users
+
+###
+GET http://localhost:5000/users/id/100000
+
+###
+GET http://localhost:5000/users/username/testdummy5
+
+###
+GET http://localhost:5000/users/roles/admin
+
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{   
+    "username": "testdummy 1",
+    "fullname": "Dummy one",
+    "roles": "admin"
+}
+
+# "last_login": "2023-01-22 08:10:05"
+
+###
+GET http://localhost:5000/ticket
+
+###
+GET http://localhost:5000/ticket/id/100000
+
+
+###
+GET http://localhost:5000/ticket/used/1
+
+# 1 true, 0 false
+
+###
+GET http://localhost:5000/ticket/username/testdummy5
+
+
+###
+POST http://localhost:5000/ticket
+Content-Type: application/json
+
+{   
+    "quantity": 1,
+    "ticket_used": false,
+    "expired": "2023-01-22 08:10:05",
+    // totalprice: DataTypes.STRING,
+    "ticket_username":"testdummy5",
+    "createdBy" : "admin"
+}
+
+###
+GET http://localhost:5000/payment
+
+###
+GET http://localhost:5000/payment/username/testdummy5
+
+###
+GET http://localhost:5000/payment/status/completed
+
+###
+GET http://localhost:5000/payment/ticketid/100000
+
+###
+GET http://localhost:5000/payment/number/CJB5Z
+
+
+###
+POST http://localhost:5000/payment
+Content-Type: application/json
+
+{   
+    "quantity": 1,
+    "pay_status":"Paid",
+    "payment_method": "GOPAY",
+    "ticket_id": 100000,
+    "username":"testdummy5",
+    "totalprice" : "1000000"
+}
